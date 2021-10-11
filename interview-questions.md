@@ -53,8 +53,8 @@ Research and define the following terms to the best of your ability.
 
 2. JSON: Javascript Object Notation is a standard text-based format for representing structured data based on Java syntax.
 
-3. ERB: Embedded Ruby or Templated Ruby is a file structure that allows us to code in HTML and drop Ruby code into the view file.
+3. ERB: Embedded Ruby or Templated Ruby is a file structure that allows us to code in HTML and drop Ruby code into the view file. RUBY JSX
 
-4. Params: They allow us to add more information to our program by passing a value into the controller.
+4. Params: parameters They allow us to add more information to our program by passing a value into the controller. 
 
 5. API: Application Programming Interface intermediates between applications, allowing them to communicate.

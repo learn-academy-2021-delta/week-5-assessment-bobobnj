@@ -10,9 +10,20 @@ beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
 # expected outputs - letter_o = 'o' --> ['coffee', 'soda water']
 # Expected output:  letter_t = 't' ['tea', 'water', 'soda water']
 
-
 beverages_array = ['coffee', 'tea', 'juice', 'water', 'soda water']
 
+# create a method - word_finder
+# parameters - array, string
+# iterate - .select
+# .include?
+def word_finderarray (string, string)
+    array.select do |value|
+        value.include? string
+    end
+end
+
+# I get what I didn't do but I don't exactly undestand why this works better than what I put below. 
+# The values "o or "t" would still be identified right?  
 
 
  p beverages_array.select { |beverages_array| beverages_array.include? "o" }
@@ -76,35 +87,48 @@ class Bike
   # Expected output example: my_bike.pedal_faster(10) => 10
   # Expected output example: my_bike.pedal_faster(10) => 20
   # Expected output example: my_bike.brake(25) => 0
-  # class Bike
-  #   attr_accessor :model, :wheels, :current_speed, :accelerate, :slow
-  #   def initialize model, wheels, speed_speed, accelerate, slow
-  #     @model = model
-  #     @wheels = 2
-  #     @current_speed = 0
-  #     @accelerate = 10
-  #     @slow = 25
-  #     # @pedal_faster = +10
-  #     # @brake = -25
-  #   end
-  #
-  #   # def pedal_faster
-  #   #
-  #   # end
-  #   # def brake
-  #
-  #   # end
-  #   def bike_info
-  #       "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph"
-  #   end
-  #   def pedal_faster accelerate
-  #     @current_speed + @accelerate
-  #   end
-  #   def brake accelerate
-  #     @current_speed - @slow
-  #   end
-  # end
-  # bike = Bike.new 'Trek', 0 ,0,
-  # p bike.brake
+  
+class Bike
+    attr_accessor :model, :wheels, :current_speed
+    def initialize model, wheels, speed_speed
+      @model = model
+      @wheels = 2
+      @current_speed = 0
+    end
+    # def get_model
+    #   @model
+    # end
+    # def get_wheels
+    #   @get_wheels
+    # end
+    # def get_current_speed
+    #   @get_current_speed
+    # end
+    def bike_info
+        "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph"
+    end
+    def pedal_faster mph
+      @current_speed =+ mph #I was using the wrong symbol
+    end
+    def brake mph
+    if @current_speed < mph # if current speed is less than mph than current speed set to 0
+      current_speed = 0
+    else
+       @current_speed -= mph # decrements
+  
+    end
+    end
+  end
+  bike = Bike.new 'Trek', 0 ,0
+  p bike.pedal_faster(10)
+  p bike.pedal_faster(10) # I wasn't passing the value when calling on it. DUH!
+  p bike.bike_info
+  p bike.brake(17)
+                            #this logs 
+                            # 10
+                            # 10
+                            # "The Trek bike has 2 wheels and is going 10 mph"
+                            # 0
+  
   
   # I did not solve this one. I tried a couple of ways defining pedal_faster faster and brake but I couldn't seem to outsmart ruby when it came to displaying the information.

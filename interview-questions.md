@@ -58,4 +58,3 @@ Research and define the following terms to the best of your ability.
 4. Params: They allow us to add more information to our program by passing a value into the controller.
 
 5. API: Application Programming Interface intermediates between applications, allowing them to communicate.
- 

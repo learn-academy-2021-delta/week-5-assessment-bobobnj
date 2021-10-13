@@ -40,7 +40,7 @@ describe('cryptexMessage', () => {
       expect(cryptexMessage(secretCodeWord2).toEqual("G0bbl3dyg00k")
       expect(cryptexMessage(secretCodeWord3).toEqual("3cc3ntr1c")
   })
-  
+
 
 var secretCodeWord1 = "Lackadaisical"
 // Expected output: "L4ck4d41s1c4l"
@@ -69,18 +69,18 @@ var secretCodeWord3 = "Eccentric"
 // }
 //          }
     // }).join("")  //This was basically how I did it on my orioginal push but a little cleaner. It doesn't account capitalization
-    // though. 
+    // though.
 // }
 
 let cryptexMessage = (str) => {
-    let coded = str.replaceAll(/a/gi, 4).replaceAll(/3/gi, e).replaceAll(/o/gi, 0).replaceAll(/i/gi, 1)  
+    let coded = str.replaceAll(/a/gi, 4).replaceAll(/3/gi, e).replaceAll(/o/gi, 0).replaceAll(/i/gi, 1)
     //this is what I was talking about in slack. I tried this method over and over but wasn't chaning them together correctly
 }   // It's cleaner but my ignorance to exactly what was going on kept me from properly chaining parameters. This is probably where
     // mentors and pair-programming come in
 
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns all the words that contain that particular letter.
-// 
+//
 // function - ltrHntrArr
 // parameters - array, string
 // iteration - filter
@@ -118,24 +118,59 @@ var letterE = "e"
 
 
 // b) Create the function that makes the test pass.
+
+// function - ltrHntrArr
+// parameters - array, string
+// iteration - filter
+// .includes consider casing
+
+// This is basically how it all makes sense to me and is closer to what I intended on sending except this one is solved because In saw my mistake
+
+// // This function ltrHntrArr is taking in an array of words AND a letter (two values)
+// const ltrHntrArr = (arr, ch) =>{
+//   // since this function is looking for words that contain something specific, we need to iterate. Since we are looking to specifically seperate the results we should filter. We can simply return the array element.filter
+//     return arr.filter(element => // filter will return a new array with elements that suffice the function
+//       element.includes(ch.toUpperCase()) || // and we need to be sure the element will be recognized in both upper and lower case
+//       element.includes(ch.toLowerCase())
+//     )
+//
+// }  Refactored version we went over in class
+
+// log ltrHntrArr to pass function
+// This function passes the test
+
+// This was the method I chose and it's all explained.
 // Declare function
-const ltrHntrArr = (arr, string) => { // so when I was doin this I never placed the string value on
-    // let newArr = [] // originaly I planned to add this but Sarah showed us different
-    // here is where I'm stuck
-    return arr.filter(value => {
-        return value.toLowerCase().includes(string)
-    })
+ const ltrHntrArr = (arr, ltr) => { // so when I was doin this I never placed the string value on
+      let newArr = [] // originaly I planned to add this but Sarah showed us different
+    // iterate through the array (i used for loop)
+      for(let i = 0; i < arr.length; i++) // starting from the first index, I want to increment through the lenfth of the array +1
+        // here is where I'm stuck
+        // if this array in question includes indexes with character in question return these in my newArr
+        if(arr[i].inclues(ltr)){
+          newArr.push(arr[i]) // when I originally did this, I couldn't accounts for the string element because I never added it to the parameters in the first place.
+          return newArr
+        }
+
+        // When I created this function, I literally used the example in the syllabus ( https://github.com/learn-academy-2021-delta/Syllabus/blob/main/javascript/functions-loops-arrays.md ). This walked me through how to solve everything by that damn second parameter and I overlooked it. When Sarah put it in there on Mon morning I realized why I couldnt get it. This one I was definitely close on and I'm sorry it never made it to my submission. Because this came right out of the lesson, mostly, I thought I was gonna nail this one.
+
+//     return arr.filter(value => {
+//         return value.toLowerCase().includes(string)
+//     })
 
 // value.match(/str/i) is another weay to draw a similiar output but didn't work well with this request
 
     // I thought about doin.match and then using .push if they matched
-     // in my return I should be able to see newArr.push = finctions intent
-    // 
- 
+     // in my return I should be able to see newArr.push = functions intent
+    //
+
+
+
   // }
   // Then I log my ltrHntrArr(arrayOfWords1)
- // This one crushed me. I watched videos on all sorts of ways to get through this stuff but I can't put it together. This assessment was supposed to be the one I nailed!
- 
+
+//
+
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
 // function - fullOrNot
@@ -144,7 +179,7 @@ const ltrHntrArr = (arr, string) => { // so when I was doin this I never placed 
 // iterate - to see how many it appears
 // second item - check remaining elements against anchor and if not save as variable
 // iterate - check how many times the second item appears
-// has to be 2 to 3 or 3 to 2 in order to be fullhouse 
+// has to be 2 to 3 or 3 to 2 in order to be fullhouse
 // a) Create a test with expect statements using the variable provided.
 
 describe('fullOrNot', () => {
@@ -158,7 +193,7 @@ describe('fullOrNot', () => {
       expect(fullOrNot(hand1).toEqual([true)),
       expect(fullOrNot(hand2).toEqual(false))
       expect(fullOrNot(hand3).toEqual(false),
-  
+
   })
   })
 
@@ -184,7 +219,7 @@ const fullHouseOrNot = (arr) => {
         }else {
             cardTwo = value
         }
-    }) 
+    })
     array.forEach(value => {
         if(value === cardTwo){
             cardTwoCounter += 1
@@ -192,10 +227,10 @@ const fullHouseOrNot = (arr) => {
 
     }) // I see what Sarah was doing here. We ran out of time so there was no way to ask about the diference in methods
         // if((vals[0] === 2 && vals[1] === 3) || (vals[1] === 2 && vals[0] === 3)){
-//       return true ; 
+//       return true ;
 //     }
 //     return false;
         // I was using a code example that used verbage outside of anything we use so I may have had a syntax problem from the conversion
 
 // These challenges are way outside of my understanding. I wish I new what was my ultimate hang up. Everything right now I guess.
-// The review today was helpful but Qs #2 and #3 still aren't fully understood here. I'm going to review it all this evening and stay on Java all week. 
+// The review today was helpful but Qs #2 and #3 still aren't fully understood here. I'm going to review it all this evening and stay on Java all week.
